@@ -1,0 +1,33 @@
+[dir] .btn {
+    text-align: center;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.786rem 4rem;
+    border-radius: 0.358rem;
+    border-top-left-radius: 0.358rem;
+    border-bottom-left-radius: 0.358rem;
+}
+[dir] .btn-outline-primary:not(:disabled):not(.disabled):active,
+[dir] .btn-outline-primary:not(:disabled):not(.disabled).active,
+[dir] .btn-outline-primary:not(:disabled):not(.disabled):focus {
+    background-color: rgba(69,0,119,0.15);
+    color: #450077;
+}
+.img-circle {
+    border-radius: 40px;
+}
+.nav-tabs .nav-link {
+    color: #ffff;
+}
+[dir] .home  .table:not(.table-dark):not(.table-light) thead:not(.thead-dark) th,
+[dir] .table:not(.table-dark):not(.table-light) tfoot:not(.thead-dark) th {
+    background-color: #450077;
+    color: #fff;
+}
+[dir="ltr"] .nav-tabs .nav-link::after {
+left: 0;
+background: linear-gradient(30deg, #86868b, rgba(127, 126, 138, 0.5)) !important;
+}
+.home .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+color: rgb(209, 204, 204);
+}

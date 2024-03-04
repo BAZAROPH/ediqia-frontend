@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
+
+
+    <!-- Splash Screen/Loader Styles -->
+    <link rel="stylesheet" type="text/css" href="<%= BASE_URL %>loader.css" />
+
+    <link rel="stylesheet" type="text/css" href="https://paydunya.com/assets/psr/css/psr.paydunya.min.css">
+    
+
+    <link rel="icon" href="<%= BASE_URL %>favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.min.css" />
+  <!-- JS -->
+  <!-- <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANL0Bij95mU-hsFlo6BHY6vcG4XLlJbgg&libraries=places"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/intlTelInput.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.min.js"></script>
+    <title></title>
+  </head>
+  <body>
+    <noscript>
+      <strong
+        >We're sorry but Vuexy - Vuejs Admin Dashboard Template doesn't work properly without JavaScript enabled. Please
+        enable it to continue.</strong
+      >
+    </noscript>
+    <div id="loading-bg">
+      <div class="loading-logo">
+        <img src="<%= BASE_URL %>logo.png" alt="Logo" />
+      </div>
+      <div class="loading">
+        <div class="effect-1 effects"></div>
+        <div class="effect-2 effects"></div>
+        <div class="effect-3 effects"></div>
+      </div>
+    </div>
+    <div id="app"></div>
+    </script>
+    <!-- built files will be auto injected -->
+    <script>
+      var input = document.querySelector("#phone");
+      intlTelInput(input, {
+        initialCountry: "auto",
+        geoIpLookup: function (success, failure) {
+          $.get("https://ipinfo.io", function () { }, "jsonp").always(function (resp) {
+            var countryCode = (resp && resp.country) ? resp.country : "us";
+            success(countryCode);
+          });
+        },
+      });
+    </script>
+    <script src ="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWpKHiyXYW4A4K789n0hTBNLJB-N1bmIE&libraries=places"> </script>
+    <script src="https://paydunya.com/assets/psr/js/psr.paydunya.min.js"></script>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script>
+      google.maps.event.addDomListener(window, 'load', initialize);
+        function initialize() {
+          var input = document.getElementById('autocomplete_search');
+          var autocomplete = new google.maps.places.Autocomplete(input);
+          autocomplete.addListener('place_changed', function () {
+          var place = autocomplete.getPlace();
+          // place variable will have all the information you are looking for.
+          $('#lat').val(place.geometry['location'].lat());
+          $('#long').val(place.geometry['location'].lng());
+         localStorage.setItem('localisation',JSON.stringify(place))
+
+        });
+      }
+    </script>
+  </body>
+</html>
